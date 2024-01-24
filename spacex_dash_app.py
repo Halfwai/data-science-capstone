@@ -55,8 +55,6 @@ app.layout=html.Div(children=[html.H1('SpaceX Launch Records Dashboard',
                                 html.Div(dcc.Graph(id='success-payload-scatter-chart')),
                                 ])
  #TASK 2: Add a callback function to render success-pie-chart based on selected site dropdown
-
-# Function decorator to specify function input and output
 @app.callback(Output(component_id='success-pie-chart', component_property='figure'),
               Input(component_id='site-dropdown', component_property='value'))
 def get_pie(value):
@@ -72,10 +70,7 @@ def get_pie(value):
         fig = px.pie(filtered_df,values='class count', names='class', title=title)
         return fig
 
-#TASK 3: Add a Range Slider to Select Payload
-                              
-         
-
+                           
 #TASK 4: Add a callback function to render the success-payload-scatter-chart scatter plot    
 @app.callback(Output(component_id='success-payload-scatter-chart', component_property='figure'),
               [Input(component_id='site-dropdown', component_property='value'),
